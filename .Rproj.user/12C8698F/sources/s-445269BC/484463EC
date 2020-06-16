@@ -7,12 +7,12 @@
     "folds" : "",
     "hash" : "0",
     "id" : "484463EC",
-    "lastKnownWriteTime" : 1592270341,
-    "last_content_update" : 1592270341996,
+    "lastKnownWriteTime" : 1592271139,
+    "last_content_update" : 1592271139433,
     "path" : "D:/rprojects/cotacoesB3/R/hello.R",
     "project_path" : "R/hello.R",
     "properties" : {
-        "cursorPosition" : "9,48",
+        "cursorPosition" : "15,51",
         "scrollLine" : "0"
     },
     "read_only" : false,

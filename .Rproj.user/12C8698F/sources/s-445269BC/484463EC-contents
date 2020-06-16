@@ -3,6 +3,7 @@
 #   Test Package:              'Ctrl + Shift + T'
 
 lerCotacoesB3 <- function(dt, out = "./"){
+  dt <- as.Date(dt)
   url <- format(dt, "http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D%d%m%Y.ZIP")
   filename <- format(dt, "Downloads/COTAHIST_D%d%m%Y.ZIP")
   filename <- paste0(out, filename)
