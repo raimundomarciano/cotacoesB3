@@ -2,12 +2,12 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-lerCotacoesB3 <- function(dt){
+lerCotacoesB3 <- function(dt, out = "Downloads/"){
   url <- format(as.Date(dt, format = "%Y-%m-%d"),
                 "http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D%d%m%Y.ZIP")
   filename <- format(as.Date(dt, format = "%Y-%m-%d"),
                      "COTAHIST_D%d%m%Y.ZIP")
-  #filename <- paste0(out, filename)
+  filename <- paste0(out, filename)
   download.file(url = url, destfile = filename, mode = "wb")
   files <- unzip(zipfile = filename, exdir = out)
 
