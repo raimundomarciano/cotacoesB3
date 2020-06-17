@@ -2,12 +2,23 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-lerCotacoesB3 <- function(dt, out = "Downloads/"){
-  url <- format(as.Date(dt, format = "%Y-%m-%d"),
-                "http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D%d%m%Y.ZIP")
-  filename <- format(as.Date(dt, format = "%Y-%m-%d"),
-                     "COTAHIST_D%d%m%Y.ZIP")
-  filename <- paste0(out, filename)
+lerCotacoesB3 <- function(dt, out = "./Downloads/", per = "anual"){
+
+  if (per == 'anual'){
+    dt <- as.character(dt)
+    url <- paste0('http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_A',
+                    dt,'.ZIP')
+    filename <- paste0(out,'COTAHIST_A',dt,'.ZIP')
+  }
+
+  if (per == 'diario'){
+    url <- format(as.Date(dt, format = "%Y-%m-%d"),
+                  "http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D%d%m%Y.ZIP")
+    filename <- format(as.Date(dt, format = "%Y-%m-%d"),
+                       "COTAHIST_D%d%m%Y.ZIP")
+    filename <- paste0(out, filename)
+  }
+
   download.file(url = url, destfile = filename, mode = "wb")
   files <- unzip(zipfile = filename, exdir = out)
 

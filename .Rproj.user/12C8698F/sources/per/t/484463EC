@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "431952915",
+    "hash" : "1104743168",
     "id" : "484463EC",
-    "lastKnownWriteTime" : 1592346663,
-    "last_content_update" : 1592346663956,
+    "lastKnownWriteTime" : 1592403257,
+    "last_content_update" : 1592403257951,
     "path" : "D:/rprojects/cotacoesB3/R/hello.R",
     "project_path" : "R/hello.R",
     "properties" : {
-        "cursorPosition" : "14,65",
-        "scrollLine" : "0"
+        "cursorPosition" : "5,0",
+        "scrollLine" : "2"
     },
     "read_only" : false,
     "read_only_alternatives" : [
