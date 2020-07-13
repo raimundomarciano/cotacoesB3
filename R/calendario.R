@@ -10,14 +10,15 @@ calendarioBR <- function(dataInicio, dataFim){
 #' @examples
 #' calendarioBR("2019-01-01", "2019-12,31")
 #' calendarioBR("2020-06-10", "2020-06.25")
+#' @import bizdays
+#' @export
+#'
 
-  library(bizdays)
-
-  create.calendar(name = "ANBIMA",
-                  holidays = holidaysANBIMA,
+  bizdays::create.calendar(name = "ANBIMA",
+                  holidays = bizdays::holidaysANBIMA,
                   weekdays = c("saturday", "sunday"))
 
-  datas <- bizseq(from = dataInicio, to = dataFim, cal = "ANBIMA")
+  datas <- bizdays::bizseq(from = dataInicio, to = dataFim, cal = "ANBIMA")
 
   return(datas)
 

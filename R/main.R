@@ -17,6 +17,7 @@ lerCotacoesB3 <- function(dt, out = "./Downloads", per = "anual"){
 #' @examples
 #' lerCotacoesB3("2019", per = "anual")
 #' lerCotacoesB3("2020-07-10", per = "diario")
+#' @export
 
   if (per == 'anual'){
     dt <- as.character(dt)
