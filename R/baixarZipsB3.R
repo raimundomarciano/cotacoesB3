@@ -12,6 +12,7 @@ baixarZipsB3 <- function(ano, out = "./Downloads", integrity = TRUE){
 #' @examples
 #' baixarZipsB3(2018)
 #' for (ano in 1990:1999) { baixarZipsB3(ano) }
+#' @export
   dt <- as.character(ano)
   fileList <- list.files(out)
 
