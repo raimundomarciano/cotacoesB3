@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1594604318406.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A723FFCF",
+    "lastKnownWriteTime" : 1594607516,
+    "last_content_update" : 1594608983066,
+    "path" : "D:/rprojects/cotacoesB3/R/main.R",
+    "project_path" : "R/main.R",
+    "properties" : {
+        "cursorPosition" : "40,58",
+        "scrollLine" : "28"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
