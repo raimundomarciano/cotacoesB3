@@ -1,0 +1,8 @@
+"0","```r
+dataInicio = as.Date(\"2020-04-25\")
+dataFim = as.Date(\"2020-05-05\")
+datas = seq(dataInicio, dataFim, by = \"day\")
+is.bizday(datas, \"ANBIMA\")
+```"
+"1"," [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE
+"

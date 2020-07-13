@@ -1,0 +1,7 @@
+"0","```r
+create.calendar(name = \"ANBIMA\", holidays = holidaysANBIMA, weekdays = c(\"saturday\", \"sunday\"))
+diaTrabalhador = as.Date(\"2020-05-01\")
+is.bizday(diaTrabalhador, \"ANBIMA\")
+```"
+"1","[1] FALSE
+"

@@ -1,0 +1,10 @@
+"0","```r
+bizseq(from = dataInicio, to = dataFim, cal = \"ANBIMA\")
+```"
+"1","[1] \"2020-04-27\" \"2020-04-28\" \"2020-04-29\" \"2020-04-30\" \"2020-05-04\" \"2020-05-05\"
+"
+"0","```r
+bizdays(from = dataInicio, to = dataFim, cal = \"ANBIMA\")
+```"
+"1","[1] 5
+"
