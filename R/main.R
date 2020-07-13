@@ -17,6 +17,7 @@ lerCotacoesB3 <- function(dt, out = "./Downloads", per = "anual"){
 #' @examples
 #' lerCotacoesB3("2019", per = "anual")
 #' lerCotacoesB3("2020-07-10", per = "diario")
+#' @import utils
 #' @export
 
   if (per == 'anual'){
@@ -34,9 +35,10 @@ lerCotacoesB3 <- function(dt, out = "./Downloads", per = "anual"){
   if (per == 'diario'){
     url <- format(as.Date(dt, format = "%Y-%m-%d"),
                   "http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D%d%m%Y.ZIP")
-    filename <- paste0(out, '/COTAHIST_D', filename,'.ZIP')
-
     dtFormatted <- format(as.Date(dt, format = "%Y-%m-%d"), "%d%m%Y")
+    filename <- paste0(out, '/COTAHIST_D', dtFormatted,'.ZIP')
+    fileList <- list.files(out)
+
     zipExists <- paste0('COTAHIST_D',dtFormatted,'.ZIP') %in% fileList
     txtExists <- paste0('COTAHIST_D',dtFormatted,'.TXT') %in% fileList
     oldExists <- FALSE
@@ -66,9 +68,11 @@ lerCotacoesB3 <- function(dt, out = "./Downloads", per = "anual"){
 
   }
 
-  layoutCotacoes <- read.csv2("layoutCotacoesHistoricas.csv", stringsAsFactors = FALSE)
-  cotacao <- read.fwf(file = files, widths = layoutCotacoes$tamanho,
-                      col.names = layoutCotacoes$campo, stringsAsFactors = FALSE,
+  #layoutCotacoes <- read.csv2("layoutCotacoesHistoricas.csv", stringsAsFactors = FALSE)
+  #layoutCotacoes <- readRDS("data/layoutCotacoesHistoricas.rds")
+  #use_data(layoutCotacoesHistoricas, internal = TRUE)
+  cotacao <- read.fwf(file = files, widths = layoutCotacoesHistoricas$tamanho,
+                      col.names = layoutCotacoesHistoricas$campo, stringsAsFactors = FALSE,
                       strip.white = TRUE, skip = 1)
   cotacao <- cotacao[-nrow(cotacao),]
   cotacao$dtPregao <- as.Date(cotacao$dtPregao, "%Y%m%d")

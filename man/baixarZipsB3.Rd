@@ -7,9 +7,11 @@
 baixarZipsB3(ano, out = "./Downloads", integrity = TRUE)
 }
 \arguments{
-\item{ano}{Um inteiro representando o ano.}
+\item{ano}{Um inteiro representando o ano}
 
-\item{out}{o caminho onde serão baixados os arquivos}
+\item{out}{O caminho onde serão baixados os arquivos}
+
+\item{integrity}{Checa a integridade dos arquivos .zip}
 }
 \description{
 Faz o download dos arquivos zip, sem processá-los. Para extrair e carregar o conteúdo
@@ -18,6 +20,6 @@ Este pacote ainda não inclui um teste de integridade. É provável que arquivos
 foram baixados corretamente.
 }
 \examples{
-baixarZipsB3(2018)
+baixarZipsB3(2017)
 for (ano in 1990:1999) { baixarZipsB3(ano) }
 }

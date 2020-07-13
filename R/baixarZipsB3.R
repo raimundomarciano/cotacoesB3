@@ -6,11 +6,12 @@ baixarZipsB3 <- function(ano, out = "./Downloads", integrity = TRUE){
 #' Este pacote ainda não inclui um teste de integridade. É provável que arquivos com menos de 5mb não
 #' foram baixados corretamente.
 #'
-#' @param ano Um inteiro representando o ano.
-#' @param out o caminho onde serão baixados os arquivos
+#' @param ano Um inteiro representando o ano
+#' @param out O caminho onde serão baixados os arquivos
+#' @param integrity Checa a integridade dos arquivos .zip
 #'
 #' @examples
-#' baixarZipsB3(2018)
+#' baixarZipsB3(2017)
 #' for (ano in 1990:1999) { baixarZipsB3(ano) }
 #' @export
   dt <- as.character(ano)
