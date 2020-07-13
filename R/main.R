@@ -11,6 +11,7 @@ lerCotacoesB3 <- function(dt, out = "./Downloads", per = "anual"){
 #' Observar que as ações são negociadas apenas em dias úteis. Para gerar
 #' um calendário de dias úteis, pode ser usada a função calendarioBR.
 #' @param dt Data. Informar um dia útil na forma "AAAA-MM-DD".
+#' @param dt Ano. Informar um ano na forma AAAA. Aspas opcionais.
 #' @param out Pasta onde os arquivos baixados serão salvos. Não incluir uma "/" ao final.
 #' @param per Periodicidade. Pode ser informado "anual" ou "diario".
 #' @examples
@@ -19,36 +20,48 @@ lerCotacoesB3 <- function(dt, out = "./Downloads", per = "anual"){
 
   if (per == 'anual'){
     dt <- as.character(dt)
+    fileList <- list.files(out)
+
     url <- paste0('http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_A',
                   dt,'.ZIP')
     filename <- paste0(out,'/COTAHIST_A',dt,'.ZIP')
+    zipExists <- paste0('COTAHIST_A',dt,'.ZIP') %in% fileList
+    txtExists <- paste0('COTAHIST_A',dt,'.TXT') %in% fileList
+    oldExists <- paste0('COTAHIST.A',dt) %in% fileList
   }
 
   if (per == 'diario'){
     url <- format(as.Date(dt, format = "%Y-%m-%d"),
                   "http://bvmf.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_D%d%m%Y.ZIP")
-    filename <- format(as.Date(dt, format = "%Y-%m-%d"),
-                       "COTAHIST_D%d%m%Y.ZIP")
-    filename <- paste0(out, "/", filename)
+    filename <- paste0(out, '/COTAHIST_D', filename,'.ZIP')
+
+    dtFormatted <- format(as.Date(dt, format = "%Y-%m-%d"), "%d%m%Y")
+    zipExists <- paste0('COTAHIST_D',dtFormatted,'.ZIP') %in% fileList
+    txtExists <- paste0('COTAHIST_D',dtFormatted,'.TXT') %in% fileList
+    oldExists <- FALSE
   }
 
-  fileexists <- list.files(out)
-  fileexists <- (paste0('COTAHIST_A',dt,'.TXT') %in% fileexists |
-                 format(as.Date(dt, format = "%Y-%m-%d"),
-                          "COTAHIST_D%d%m%Y.TXT") %in% fileexists)
-  if (!fileexists){
+  if (!(zipExists | txtExists | oldExists)){
     download.file(url = url, destfile = filename, mode = "wb")
     files <- unzip(zipfile = filename, exdir = out)
+
+  } else if (zipExists & !txtExists & !oldExists){
+
+    files <- unzip(zipfile = filename, exdir = out)
+
+  } else if (txtExists) {
+
+      if (per == "anual"){ files <- files <- paste0(out, '/COTAHIST_A', dt,'.TXT') }
+      if (per == "diario") {files <- paste0(out, '/COTAHIST_D', dtFormatted,'.TXT') }
+
+  } else if (per == "anual" & oldExists){
+
+      files <- paste0(out, '/COTAHIST.A', dt)
+
   } else {
 
-    if (per == "anual"){
-      files <- paste0(out, '/COTAHIST_A',dt,'.TXT')
-
-    } else if (per == "diario") {
-      files <- format(as.Date(dt, format = "%Y-%m-%d"),
-                      "COTAHIST_D%d%m%Y.TXT")
-      files <- paste0(out, "/", files)
-    }
+      print("Formato não reconhecido. Por favor, reportar o erro.")
+      return
 
   }
 

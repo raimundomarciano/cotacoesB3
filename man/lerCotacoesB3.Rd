@@ -7,7 +7,7 @@
 lerCotacoesB3(dt, out = "./Downloads", per = "anual")
 }
 \arguments{
-\item{dt}{Data. Informar um dia útil na forma "AAAA-MM-DD".}
+\item{dt}{Ano. Informar um ano na forma AAAA. Aspas opcionais.}
 
 \item{out}{Pasta onde os arquivos baixados serão salvos. Não incluir uma "/" ao final.}
 
