@@ -1,9 +1,0 @@
-"0","```r
-ntnF = data.frame(
-  datas = proximosPgtos,
-  prazosDiasUteis = du,
-  fv = fv,
-  pv = pv
-)
-ntnF
-```"

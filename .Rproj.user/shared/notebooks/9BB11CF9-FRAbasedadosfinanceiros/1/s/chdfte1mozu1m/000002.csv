@@ -1,7 +1,0 @@
-"0","```r
-fv = rep(juros, length(proximosPgtos))
-fv[length(fv)] = fv[length(fv)] + principal
-fv
-```"
-"1","[1]   48.80885   48.80885   48.80885   48.80885 1048.80885
-"
